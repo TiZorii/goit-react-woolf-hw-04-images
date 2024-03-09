@@ -28,7 +28,7 @@ const App = () => {
           webformatURL,
           tags,
         }));
-        setImages(prevImages => [...prevImages, ...formattedImages]);
+        setImages((prevImages) => [...prevImages, ...formattedImages]);
         setAllPages(Math.ceil(totalHits / 12));
       } catch (err) {
         console.log(err);
@@ -42,18 +42,18 @@ const App = () => {
     }
   }, [search, currentTargetPage]);
 
-  const onSubmit = searchValue => {
+  const onSubmit = (searchValue) => {
     setSearch(searchValue);
     setImages([]);
     setCurrentTargetPage(1);
   };
 
   const loadMore = () => {
-    setCurrentTargetPage(prevPage => prevPage + 1);
+    setCurrentTargetPage((prevPage) => prevPage + 1);
   };
 
   const toggleModal = (imageURL, imageTags) => {
-    setShowModal(prevShowModal => !prevShowModal);
+    setShowModal((prevShowModal) => !prevShowModal);
     setLargeImageURL(imageURL);
     setTags(imageTags);
   };
